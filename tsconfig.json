@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/app/layout.jsx"  ],
+, "src/app/layout.jsx", "src/components/profile-bar/index.tsx", "src/app/page.jsx", "src/components/add-basket-button/index.jsx", "src/app/products/[id]/page.jsx", "src/components/basket/index.jsx"  ],
   "exclude": ["node_modules"]
 }

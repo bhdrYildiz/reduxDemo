@@ -1,24 +1,21 @@
-import "@/../style.css";
-
-import { Header } from "@/components/header";
-import { Rubik } from "next/font/google";
-
+import { ReduxProvider } from "@/components/redux-provider";
 import { store } from "./stores";
 import { fetchUser } from "./stores/user-store";
-
-const BodyFont = Rubik({
-  subsets: ["latin"],
-});
+import { Header } from "@/components/header";
+import "@/../style.css";
 
 export default async function RootLayout({ children }) {
   await store.dispatch(fetchUser());
 
-  console.log(store.getState().user);
+  const initialState = store.getState();
+
   return (
     <html>
-      <body className={BodyFont.className}>
-        <Header />
-        <main>{children}</main>
+      <body>
+        <ReduxProvider initialState={initialState}>
+          <Header />
+          <main>{children}</main>
+        </ReduxProvider>
       </body>
     </html>
   );
